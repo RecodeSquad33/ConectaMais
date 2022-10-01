@@ -1,0 +1,82 @@
+@charset "UTF-8";
+body{
+    background-image: url(Images/Background.png);
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+.navbar {
+    padding: 0px;
+}
+
+/* visited link  */
+.navbar a:visited {
+    color: rgb(247, 239, 239);
+}
+
+/* mouse over link */
+.navbar a:hover {
+    color: #f89007;
+}
+
+/* selected link blue */
+#active {
+    color: #ff9b19;
+}
+
+/* !IMPORTANT ONLY ADD THIS CLASS TO YOUR ACTIVE PAGE LINK ( Color Blue )
+.activePage a {
+	color: #0CF !important
+} */
+
+
+#caixa_esquerda {
+    color: white;
+    margin: 7% 4% auto 4%;
+    font-weight: 900;
+    font-family: 'Montserrat', sans-serif;
+}
+
+#sobre {
+    color: white;
+    font-weight: 500;
+    font-family: 'Montserrat', sans-serif;
+}
+
+#vt {
+	border-radius: 5%;
+}
+
+.elementor-divider {
+    display: inline-flex;
+    padding: .3em 0;
+    border-bottom: 5px solid #ff9b19;
+    justify-content: flex-start;
+    padding-bottom: 0px;
+    margin-bottom: 15px;
+    size: 0px;
+    width: 200px;
+
+}
+
+.nav-item {
+    text-decoration: none;
+}
+
+@media (max-width: 600px) {
+    .elementor-divider {
+        width: 300px;
+       
+    }
+}
+    @media (max-width: 354px) {
+        .elementor-divider {
+            width: 900px;
+       
+        }
+    
+}
