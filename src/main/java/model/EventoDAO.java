@@ -120,7 +120,7 @@ import java.util.List;
 	
 		public List<Evento> getEventos() {
 			
-			String sql = "SELECT * FROM evento";
+			String sql = "SELECT evento2.*, endereco_es.logradouro FROM evento2, endereco_es";
 			
 			List<Evento> eventos = new ArrayList<Evento>();
 			
@@ -138,13 +138,17 @@ import java.util.List;
 						
 						evento.setId(rset.getInt("id"));
 						
-						evento.setLocal(rset.getString("endereco"));
+						evento.setLocal(rset.getString("logradouro"));
 						
 						evento.setInstituicaoEnsino(rset.getInt("instituicao_ensino"));
 						
 						evento.setVoluntario(rset.getInt("voluntario"));
 						
 						evento.setDataEvento(rset.getString("dataEvento"));
+						
+						evento.setTituloEvento(rset.getString("tituloEvento"));
+						
+						evento.setSobreEvento(rset.getString("sobreEvento"));
 						
 						eventos.add(evento);
 						

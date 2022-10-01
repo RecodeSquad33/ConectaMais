@@ -89,8 +89,8 @@
 					<div class="card my-5 w-75">
 						<div class="card-header text-light bg-primary">${evento.dataEvento}</div>
 						<div class="card-body">
-							<h5 class="card-title">Titulo do evento</h5>
-							<p class="card-text">Descrição do evento</p>
+							<h5 class="card-title">${evento.tituloEvento}</h5>
+							<p class="card-text">${evento.sobreEvento}</p>
 							<div class="card-footer">${evento.local}</div>
 							<a href="#" class="btn btn-secondary mt-3"
 								style="background-color: #ff9b19;">Saiba mais</a>
