@@ -18,11 +18,6 @@ import model.EventoDAO;
 public class ListarEventos extends HttpServlet {
 
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
-
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		List<Evento> eventos = new ArrayList<Evento>();

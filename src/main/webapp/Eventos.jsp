@@ -54,17 +54,17 @@
 						<li class="nav-item px-1"><a class="nav-link px-1"
 							aria-current="page" href="index.html"><i
 								class="icon fa fa-home mx-1" aria-hidden="true"
-								style="font-size: 1.3rem;"></i>Home</a></li>
+								style="font-size: 1.3rem;"></i>Home<a></li>
 						<li class="nav-item px-1"><a class="nav-link px-1"
 							href="login.html"><i class="fa fa-user-circle-o mx-1"
-								aria-hidden="true" style="font-size: 1.1rem;"></i>Login</a></li>
+								aria-hidden="true" style="font-size: 1.1rem;"></i>Login<a></li>
 						<li class="nav-item px-1"><a class="nav-link"
 							href="formularios.html"><i class="fa fa-user-plus mx-1"
 								aria-hidden="true" style="font-size: 1.1rem;"></i>Cadastro</a></li>
 						<li class="nav-item px-1"><a id="active"
 							class="nav-link active" aria-current="page" href="#"><i
 								class="icon fa fa-calendar-check-o mx-1" aria-hidden="true"
-								style="font-size: 1.1rem;"></i><strong> Eventos</strong></a></li>
+								style="font-size: 1.1rem;"></i><strong> Eventos</a></strong></li>
 
 						<li class="nav-item px-1"><a class="nav-link"
 							href="contato.html"><i class="fa fa-phone-square mx-1"
@@ -79,37 +79,40 @@
 		<!-- Navbar Fim -->
 	</header>
 
-
+	<!-- Main -->
+	<!-- Eventos -->
 	<main>
 		<div class="row p-0 m-0">
 			<div class="col text-center justify-content-center"
 				style="margin-left: 18%;">
-				<jstl:forEach items="${listaEventos}" var="eventos">
+				<jstl:forEach items="${listaEventos}" var="evento">
 					<div class="card my-5 w-75">
-						<div class="card-header text-light bg-primary">
-							<h5 class="card-title">${eventos.tituloEvento}</h5>
-						</div>
+						<div class="card-header text-light bg-primary">${evento.dataEvento}</div>
 						<div class="card-body">
-
-							<p class="card-text">${eventos.sobreEvento}</p>
-							<p class="card-text">${eventos.dataEvento}</p>
-							<div class="card-footer text-light fw-bolder"
-								style="background-color: #ff9b19;">${eventos.local}</div>
-
+							<h5 class="card-title">Titulo do evento</h5>
+							<p class="card-text">Descrição do evento</p>
+							<div class="card-footer">${evento.local}</div>
+							<a href="#" class="btn btn-secondary mt-3"
+								style="background-color: #ff9b19;">Saiba mais</a>
 						</div>
 					</div>
 				</jstl:forEach>
-			</div>
-		</div>
 	</main>
+	<!-- Eventos Fim -->
+	<!-- Main Fim -->
 
+	<!-- Rodapé -->
 	<footer>
-        <div class="navbar bg-primary container-fluid justify-content-center align-content-center fixed-bottom">
-            <a class="nav-item" href="#" style="height: 30px;">
-                <p class="text-white fs-6"><small>&copy; 2022 SQUAD 33</small></p>
-            </a>
-        </div>
-    </footer>
+		<div
+			class="navbar bg-primary container-fluid justify-content-center align-content-center fixed-bottom">
+			<a class="nav-item" href="#" style="height: 30px;">
+				<p class="text-white fs-6">
+					<small>&copy; 2022 SQUAD 33</small>
+				</p>
+			</a>
+		</div>
+	</footer>
+	<!-- Rodapé Fim -->
 
 	<!-- JavaScript -->
 	<script

@@ -11,18 +11,16 @@ import java.util.List;
 		PreparedStatement pstm = null;
 	
 		public void save(Evento evento) {
-			String sql = "INSERT INTO evento(tituloEvento, local, instituicaoEnsino, voluntario, dataEvento, sobreEvento)" + " VALUES(?,?,?,?,?,?)";
+			String sql = "INSERT INTO evento(endereco, instituicao_ensino, voluntario, dataEvento)" + " VALUES(?,?,?,?)";
 			
 			
 			try {
 				conn = Conexao.createConnectionToMySQL();
 				pstm = conn.prepareStatement(sql);
-				pstm.setString(1, evento.getTituloEvento());
-				pstm.setString(2, evento.getLocal());
-				pstm.setInt(3, evento.getInstituicaoEnsino());
-				pstm.setInt(4, evento.getVoluntario());
-				pstm.setString(5, evento.getDataEvento());
-				pstm.setString(6, evento.getSobreEvento());
+				pstm.setString(1, evento.getLocal());
+				pstm.setInt(2, evento.getInstituicaoEnsino());
+				pstm.setInt(3, evento.getVoluntario());
+				pstm.setString(4, evento.getDataEvento());
 				pstm.execute();	
 			} 
 			
@@ -82,18 +80,18 @@ import java.util.List;
 		}
 		
 		public void update (Evento evento) {
-			String sql = "UPDATE evento SET tituloEvento=?, local = ?, instituicaoEnsino = ?, voluntario = ?, dataEvento = ?, sobreEvento=?" + "WHERE id = ?";
+			String sql = "UPDATE evento SET endereco = ?, instituicao_ensino = ?, voluntario = ?, dataEvento = ??" + "WHERE id = ?";
 			
 			try {
 				conn = Conexao.createConnectionToMySQL();
 				pstm = conn.prepareStatement(sql);
-				pstm.setString(1, evento.getTituloEvento());
-				pstm.setString(2, evento.getLocal());
-				pstm.setInt(3, evento.getInstituicaoEnsino());
-				pstm.setInt(4, evento.getVoluntario());
-				pstm.setString(5, evento.getDataEvento());
-				pstm.setString(6, evento.getSobreEvento());
-				pstm.execute();				} 
+				pstm.setString(1, evento.getLocal());
+				pstm.setInt(2, evento.getInstituicaoEnsino());
+				pstm.setInt(3, evento.getVoluntario());
+				pstm.setString(4, evento.getDataEvento());
+				pstm.setInt(5, evento.getId());
+				pstm.execute();	
+			} 
 			
 			catch (Exception e) {
 				e.printStackTrace();
@@ -140,17 +138,13 @@ import java.util.List;
 						
 						evento.setId(rset.getInt("id"));
 						
-						evento.setTituloEvento(rset.getString("tituloEvento"));
+						evento.setLocal(rset.getString("endereco"));
 						
-						evento.setLocal(rset.getString("local"));
-						
-						evento.setInstituicaoEnsino(rset.getInt("instituicaoEnsino"));
+						evento.setInstituicaoEnsino(rset.getInt("instituicao_ensino"));
 						
 						evento.setVoluntario(rset.getInt("voluntario"));
 						
 						evento.setDataEvento(rset.getString("dataEvento"));
-						
-						evento.setSobreEvento(rset.getString("sobreEvento"));
 						
 						eventos.add(evento);
 						

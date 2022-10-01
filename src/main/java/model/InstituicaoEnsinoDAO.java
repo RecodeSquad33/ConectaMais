@@ -31,7 +31,7 @@ public class InstituicaoEnsinoDAO {
 			inst.setCidade(rset.getString("cidade"));
 			inst.setEstado(rset.getString("estado"));
 			inst.setCep(rset.getString("cep"));
-			inst.setQtd_alunos(Integer.parseInt(request.getParameter("qtd_alunos")));
+			inst.setQtd_alunos(Integer.parseInt(rset.getString("qtd_alunos")));
 			inst.setTelefone(rset.getString("telefone"));
 			inst.setSobre(rset.getString("sobre"));
 			inst.setNome_contato(rset.getString("nome_contato"));
