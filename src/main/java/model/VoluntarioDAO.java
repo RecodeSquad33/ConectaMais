@@ -8,6 +8,58 @@ import java.util.List;
 
 public class VoluntarioDAO {
 	
+	
+	public void save(Voluntario voluntario) {
+		
+		Connection conn = null;
+		PreparedStatement pstm = null;
+		
+		String sql = "INSERT INTO voluntario (nome_voluntario, dataAniv, telefone_voluntario, email_voluntario, logradouro_voluntario, cidade_voluntario, estado_voluntario, cep_voluntario, formacao, sobre_voluntario, senha)" + " VALUES(?,?,?,?,?,?,?,?,?,?,?)";
+		
+		
+		try {
+			conn = Conexao.createConnectionToMySQL();
+			pstm = conn.prepareStatement(sql);
+			/* pstm.setString(1, voluntario.getCpf_voluntario()); */
+			pstm.setString(1, voluntario.getNome_voluntario());
+			pstm.setString(2, voluntario.getDataAniv());
+			pstm.setString(3, voluntario.getTelefone_voluntario());
+			pstm.setString(4, voluntario.getEmail_voluntario());
+			pstm.setString(5, voluntario.getLogradouro_voluntario());
+			pstm.setString(6, voluntario.getCidade_voluntario());
+			pstm.setString(7, voluntario.getEstado_voluntario());
+			pstm.setString(8, voluntario.getCidade_voluntario());
+			pstm.setString(9, voluntario.getCep_voluntario());
+			pstm.setString(10, voluntario.getFormacao());
+			pstm.setString(11, voluntario.getSenha());
+			/* pstm.setString(13, voluntario.getImagem()); */
+			
+			pstm.execute();	
+		} 
+		
+		catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		finally {
+			
+			try {
+				
+				if (pstm != null) {
+					pstm.close();
+				}
+				
+				if (conn != null) {
+					conn.close();
+				}
+			} 
+			
+			catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+	}
+	
 	public Voluntario getVoluntarioByEmail(String email) {
 
 		String sql = "SELECT * FROM voluntario where email_voluntario = ?";
@@ -24,8 +76,9 @@ public class VoluntarioDAO {
 			rset = pstm.executeQuery();
 
 			rset.next();
-			vol.setCpf_voluntario(rset.getString("cpf_voluntario"));
+			
 			vol.setNome_voluntario(rset.getString("nome_voluntario"));
+			vol.setDataAniv(rset.getString("dataAniv"));
 			vol.setTelefone_voluntario(rset.getString("telefone_voluntario"));
 			vol.setEmail_voluntario(rset.getString("email_voluntario"));
 			vol.setLogradouro_voluntario(rset.getString("logradouro_voluntario"));
@@ -34,6 +87,7 @@ public class VoluntarioDAO {
 			vol.setCep_voluntario(rset.getString("cep_voluntario"));
 			vol.setFormacao(rset.getString("formacao"));
 			vol.setSobre_voluntario(rset.getString("sobre_voluntario"));
+			vol.setSenha(rset.getString("senha"));
 			
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -77,8 +131,9 @@ public class VoluntarioDAO {
 
 				Voluntario vol = new Voluntario();
 
-				vol.setCpf_voluntario(rset.getString("cpf_voluntario"));
+				
 				vol.setNome_voluntario(rset.getString("nome_voluntario"));
+				vol.setSobre_voluntario(rset.getString("dataAniv"));
 				vol.setTelefone_voluntario(rset.getString("telefone_voluntario"));
 				vol.setEmail_voluntario(rset.getString("email_voluntario"));
 				vol.setLogradouro_voluntario(rset.getString("logradouro_voluntario"));
@@ -87,6 +142,7 @@ public class VoluntarioDAO {
 				vol.setCep_voluntario(rset.getString("cep_voluntario"));
 				vol.setFormacao(rset.getString("formacao"));
 				vol.setSobre_voluntario(rset.getString("sobre_voluntario"));
+				vol.setSobre_voluntario(rset.getString("senha"));
 
 				voluntarios.add(vol);
 			}

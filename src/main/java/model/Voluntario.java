@@ -2,8 +2,9 @@ package model;
 
 public class Voluntario {
 
-	private String cpf_voluntario;
+	private String id_voluntario;
 	private String nome_voluntario;
+	private String dataAniv;
 	private String telefone_voluntario;
 	private String email_voluntario;
 	private String logradouro_voluntario;
@@ -12,13 +13,17 @@ public class Voluntario {
 	private String cep_voluntario;
 	private String formacao;
 	private String sobre_voluntario;
+	private String senha;
 
-	public String getCpf_voluntario() {
-		return cpf_voluntario;
+	/*
+	 * private String imagem;
+	 */
+	public String getId_voluntario() {
+		return id_voluntario;
 	}
 
-	public void setCpf_voluntario(String cpf_voluntario) {
-		this.cpf_voluntario = cpf_voluntario;
+	public void setId_voluntario(String id_voluntario) {
+		this.id_voluntario = id_voluntario;
 	}
 
 	public String getNome_voluntario() {
@@ -92,5 +97,29 @@ public class Voluntario {
 	public void setSobre_voluntario(String sobre_voluntario) {
 		this.sobre_voluntario = sobre_voluntario;
 	}
+
+	public String getSenha() {
+		return senha;
+	}
+
+	public void setSenha(String senha) {
+		this.senha = senha;
+	}
+
+	/*
+	 * public String getImagem() { return imagem; }
+	 * 
+	 * public void setImagem(String imagem) { this.imagem = imagem; }
+	 */
+
+	public String getDataAniv() {
+		return dataAniv;
+	}
+
+	public void setDataAniv(String dataAniv) {
+		this.dataAniv = dataAniv;
+	}
+	
+	
 
 }
