@@ -7,7 +7,7 @@ import java.sql.DriverManager;
 		
 		private static final String USERNAME = "root";
 
-		private static final String PASSWORD = "678Priscila";
+		private static final String PASSWORD = "root";
 	
 		private static final String DATABASE_URL = "jdbc:mysql://localhost:3306/conectamais";
 		

@@ -12,9 +12,38 @@ public class InstituicaoEnsino {
 	private int qtd_alunos;
 	private String telefone;
 	private String sobre;
+	
+	private String email;
+	private String senha;
+	
 	private String nome_contato;
 	private String email_contato;
 	private String telefone_contato;
+
+	public InstituicaoEnsino() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	public InstituicaoEnsino(int id_ie, String nome, String categoria, String logradouro, String cidade, String estado,
+			String cep, int qtd_alunos, String telefone, String sobre, String email, String senha, String nome_contato,
+			String email_contato, String telefone_contato) {
+		this.id_ie = id_ie;
+		this.nome = nome;
+		this.categoria = categoria;
+		this.logradouro = logradouro;
+		this.cidade = cidade;
+		this.estado = estado;
+		this.cep = cep;
+		this.qtd_alunos = qtd_alunos;
+		this.telefone = telefone;
+		this.sobre = sobre;
+		this.email = email;
+		this.senha = senha;
+		this.nome_contato = nome_contato;
+		this.email_contato = email_contato;
+		this.telefone_contato = telefone_contato;
+	}
 
 	public int getId_ie() {
 		return id_ie;
@@ -94,6 +123,22 @@ public class InstituicaoEnsino {
 
 	public void setSobre(String sobre) {
 		this.sobre = sobre;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getSenha() {
+		return senha;
+	}
+
+	public void setSenha(String senha) {
+		this.senha = senha;
 	}
 
 	public String getNome_contato() {
