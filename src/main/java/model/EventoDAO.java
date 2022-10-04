@@ -11,16 +11,17 @@ import java.util.List;
 		PreparedStatement pstm = null;
 	
 		public void save(Evento evento) {
-			String sql = "INSERT INTO evento(endereco, instituicao_ensino, voluntario, dataEvento)" + " VALUES(?,?,?,?)";
+			String sql = "INSERT INTO evento(tituloEvento, instEnsino_FK, voluntario_FK, dataEvento, sobreEvento)" + " VALUES(?,?,?,?,?)";
 			
 			
 			try {
 				conn = Conexao.createConnectionToMySQL();
 				pstm = conn.prepareStatement(sql);
-				pstm.setString(1, evento.getLocal());
+				pstm.setString(1, evento.getTituloEvento());
 				pstm.setInt(2, evento.getInstituicaoEnsino());
-				pstm.setInt(3, evento.getVoluntario());
+				pstm.setString(3, evento.getVoluntario());
 				pstm.setString(4, evento.getDataEvento());
+				pstm.setString(4, evento.getSobreEvento());
 				pstm.execute();	
 			} 
 			
@@ -50,7 +51,7 @@ import java.util.List;
 		public void removeById(int id) {
 
 			
-			String sql = "DELETE FROM evento WHERE id = ?";
+			String sql = "DELETE FROM evento WHERE idEvento = ?";
 			Connection conn = null;
 			PreparedStatement pstm = null;
 			
@@ -80,16 +81,17 @@ import java.util.List;
 		}
 		
 		public void update (Evento evento) {
-			String sql = "UPDATE evento SET endereco = ?, instituicao_ensino = ?, voluntario = ?, dataEvento = ??" + "WHERE id = ?";
+			String sql = "UPDATE evento SET instEnsino_FK = ?, voluntario_FK = ?, dataEvento = ?, sobreEvento = ?, tituloEvento = ?" + "WHERE idEvento = ?";
 			
 			try {
 				conn = Conexao.createConnectionToMySQL();
 				pstm = conn.prepareStatement(sql);
-				pstm.setString(1, evento.getLocal());
-				pstm.setInt(2, evento.getInstituicaoEnsino());
-				pstm.setInt(3, evento.getVoluntario());
-				pstm.setString(4, evento.getDataEvento());
-				pstm.setInt(5, evento.getId());
+				pstm.setInt(1, evento.getInstituicaoEnsino());
+				pstm.setString(2, evento.getVoluntario());
+				pstm.setString(3, evento.getDataEvento());
+				pstm.setString(4, evento.getSobreEvento());
+				pstm.setString(5, evento.getTituloEvento());
+				pstm.setInt(6, evento.getId());
 				pstm.execute();	
 			} 
 			
@@ -120,7 +122,7 @@ import java.util.List;
 	
 		public List<Evento> getEventos() {
 			
-			String sql = "SELECT evento2.*, endereco_es.logradouro FROM evento2, endereco_es";
+			String sql = "select evento.*, instituicaoensino.logradouroIE from evento join instituicaoensino on evento.instEnsino_FK = instituicaoensino.idInstEnsino;";
 			
 			List<Evento> eventos = new ArrayList<Evento>();
 			
@@ -136,13 +138,13 @@ import java.util.List;
 						
 						Evento evento = new Evento ();
 						
-						evento.setId(rset.getInt("id"));
+						evento.setId(rset.getInt("idEvento"));
 						
-						evento.setLocal(rset.getString("logradouro"));
+						evento.setLocal(rset.getString("logradouroIE"));
 						
-						evento.setInstituicaoEnsino(rset.getInt("instituicao_ensino"));
+						evento.setInstituicaoEnsino(rset.getInt("instEnsino_FK"));
 						
-						evento.setVoluntario(rset.getInt("voluntario"));
+						evento.setVoluntario(rset.getString("voluntario_FK"));
 						
 						evento.setDataEvento(rset.getString("dataEvento"));
 						

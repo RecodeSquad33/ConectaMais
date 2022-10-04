@@ -4,7 +4,7 @@ public class Evento {
 	private int id;
 	private String local;
 	private int instituicaoEnsino;
-	private int voluntario;
+	private String voluntario;
 	private String dataEvento;
 	private String tituloEvento;
 	private String sobreEvento;
@@ -27,10 +27,10 @@ public class Evento {
 	public void setInstituicaoEnsino(int instituicaoEnsino) {
 		this.instituicaoEnsino = instituicaoEnsino;
 	}
-	public int getVoluntario() {
+	public String getVoluntario() {
 		return voluntario;
 	}
-	public void setVoluntario(int voluntario) {
+	public void setVoluntario(String voluntario) {
 		this.voluntario = voluntario;
 	}
 	public String getDataEvento() {
