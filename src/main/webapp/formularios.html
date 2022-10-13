@@ -30,7 +30,7 @@
     <!-- FIM Lado direito -->
 
     <div class="lado-direito off">
-        <form id="form_vol" class="voluntario off">
+        <form id="form_vol" action="/ConectaMais/criarVoluntarios" method="post" class="voluntario off">
             <div class="input span14">
                 <h1>Cadastro de voluntários</h1>
             </div>
@@ -40,57 +40,57 @@
             </div>
             <div class="input span13">
                 <label for="nome">Nome</label>
-                <input type="text" id="nome" placeholder="Nome completo">
+                <input name="nome_voluntario" type="text" id="nome" placeholder="Nome completo">
             </div>
 
             <div class="input">
                 <label for="datanascimento">Data de nascimento</label>
-                <input type="date" name="datanascimento" id="datanascimento">
+                <input name="dataAniv" type="text" name="datanascimento" id="datanascimento" placeholder="dd/mm/aaaa">
             </div>
 
             <div class="input">
                 <label for="cep">Cep</label>
-                <input type="text" id="cep" placeholder="CEP">
+                <input name="cep_voluntario" type="text" id="cep" placeholder="CEP">
             </div>
 
 
             <div class="input span24">
                 <label for="endereco">Endereço</label>
-                <input type="text" id="endereco" placeholder="Rua Exemplo, 123">
+                <input name="logradouro_voluntario" type="text" id="endereco" placeholder="Rua Exemplo, 123">
             </div>
 
             <div class="input">
                 <label for="cidade">Cidade</label>
-                <input type="text" id="cidade" placeholder="Cidade">
+                <input name="cidade_voluntario" type="text" id="cidade" placeholder="Cidade">
             </div>
 
             <div class="input">
                 <label for="estado">Estado</label>
-                <input type="text" id="estado" placeholder="Estado">
+                <input name="estado_voluntario" type="text" id="estado" placeholder="Estado">
             </div>
 
             <div class="input">
                 <label for="telefone">Telefone</label>
-                <input type="text" id="telefone" placeholder="(XX) XXXX-XXXX">
+                <input name="telefone_voluntario" type="text" id="telefone" placeholder="(XX) XXXX-XXXX">
             </div>
 
             <div class="input span14">
                 <label for="formacao">Formação</label>
                 <select name="formacao" id="formacao">
                     <option value=""></option>
-                    <option value="">Ensino fundamental incompleto</option>
-                    <option value="">Ensino fundamental completo</option>
-                    <option value="">Ensino médio incompleto</option>
-                    <option value="">Ensino médio completo</option>
-                    <option value="">Ensino superior cursando</option>
-                    <option value="">Ensino superior incompleto</option>
-                    <option value="">Ensino superior completo</option>
+                    <option value="Ensino fundamental incompleto">Ensino fundamental incompleto</option>
+                    <option value="Ensino fundamental completo">Ensino fundamental completo</option>
+                    <option value="Ensino médio incompleto">Ensino médio incompleto</option>
+                    <option value="Ensino médio completo">Ensino médio completo</option>
+                    <option value="Ensino superior cursando">Ensino superior cursando</option>
+                    <option value="Ensino superior incompleto">Ensino superior incompleto</option>
+                    <option value="Ensino superior completo">Ensino superior completo</option>
                 </select>
             </div>
 
             <div class="input span14">
                 <label for="sobre">Sobre</label>
-                <textarea name="" id=""
+                <textarea name="sobre_voluntario" id=""
                     placeholder="Fale mais sobre você, suas experiências, como pretende atuar na instituição etc."></textarea>
             </div>
 
@@ -100,123 +100,101 @@
 
             <div class="input span14">
                 <label for="email">Email</label>
-                <input type="text" id="email" placeholder="Email">
+                <input name="email_voluntario" type="text" id="email" placeholder="Email">
             </div>
 
             <div class="input span14">
                 <label for="senha">Senha</label>
-                <input type="password" name="" id="senha" placeholder="Senha">
+                <input name="senha" type="password" id="senha" placeholder="Senha">
             </div>
 
             <div class="input span14">
-                <button>Enviar</button>
+                <button name="act" type="submit" value="btn_vol" type="submit">Enviar</button>
             </div>
         </form>
         <!-- FIM formulário de voluntário -->
 
 
         <!-- Formulário de instituição de ensino -->
-		<form id="form_inst" class="instituicao off"
-			action="InserirInstituicaoEnsino">
-			<div class="input span14">
-				<h1>Cadastro de instituição de ensino</h1>
-			</div>
-
-			<div class="input span14">
-				<h4>Dados da instituição</h4>
-			</div>
-
-			<div class="input span14">
-				<label for="nome">Nome da instituição de ensino</label> <input
-					type="text" id="nome" name="nome">
-			</div>
-
-
-			<div class="input">
-				<label for="cep">Cep</label> <input type="text" id="cep" name="cep">
-			</div>
-
-
-			<div class="input span24">
-				<label for="logradouro">Endereço</label> <input type="text"
-					id="logradouro" name="logradouro">
-			</div>
-
-			<div class="input">
-				<label for="cidade">Cidade</label> <input type="text" id="cidade"
-					name="cidade">
-			</div>
-
-			<div class="input">
-				<label for="estado">Estado</label> <input type="text" id="estado"
-					name="estado">
-			</div>
-
-			<div class="input">
-				<label for="telefone">Telefone</label> <input type="text"
-					id="telefone" name="telefone">
-			</div>
-
-			<div class="input span13">
-				<label for="categoria">Categoria/Área de atuação</label> <select
-					type="text" id="categoria" name="categoria">
-					<option></option>
-					<option>Ensino básico público</option>
-					<option>Ensino básico particular</option>
-					<option>Ensino superior público</option>
-					<option>Ensino superior particular</option>
-					<option>Ensino técnico</option>
-				</select>
-			</div>
-
-			<div class="input">
-				<label for="qtd_alunos">Quantidade de alunos</label> <input
-					type="number" id="qtd_alunos" name="qtd_alunos">
-			</div>
-
-			<div class="input span14">
-				<label for="sobre">Sobre</label>
-				<textarea name="sobre" id="sobre"></textarea>
-			</div>
-
-			<div class="input span14">
-				<h4>Dados de login</h4>
-			</div>
-
-			<div class="input span14">
-				<label for="email">Email</label> <input type="email" name="email"
-					id="email">
-			</div>
-
-			<div class="input span14">
-				<label for="senha">Senha</label> <input type="password" name="senha"
-					id="senha">
-			</div>
-
-			<div class="input span14">
-				<h4>Dados do representante da instituição</h4>
-			</div>
-
-			<div class="input span14">
-				<label for="nome_contato">Nome</label> <input type="text"
-					id="nome_contato" placeholder="Nome do representante"
-					name="nome_contato">
-			</div>
-
-			<div class="input span13">
-				<label for="email_contato">Email para contato</label> <input
-					type="email" name="email_contato" id="email_contato"
-					placeholder="Email do representante">
-			</div>
-
-			<div class="input">
-				<label for="telefone_contato">Telefone</label> <input type="text"
-					id="telefone_contato" placeholder="Telefone do representante"
-					name="telefone_contato">
-			</div>
+        <form action="/ConectaMais/criarInstituicaoEnsino" method="post" id="form_inst" class="instituicao off">
+            <div class="input span14">
+                <h1>Cadastro de instituição de ensino</h1>
+            </div>
 
             <div class="input span14">
-                <button class="botao" type="submit" >Enviar</button>
+                <h4>Dados da instituição</h4>
+            </div>
+
+            <div class="input span14">
+                <label for="nomedainstituicao">Nome da instituição de ensino</label>
+                <input name="nome" type="text" id="nomedainstituicao">
+            </div>
+
+
+            <div class="input">
+                <label for="cep">Cep</label>
+                <input name="cep" type="text" id="cep">
+            </div>
+
+
+            <div class="input span24">
+                <label for="endereco">Endereço</label>
+                <input name="logradouro" type="text" id="endereco">
+            </div>
+
+            <div class="input">
+                <label for="cidade">Cidade</label>
+                <input name="cidade" type="text" id="cidade">
+            </div>
+
+            <div class="input">
+                <label for="estado">Estado</label>
+                <input name="estado" type="text" id="estado">
+            </div>
+
+            <div class="input">
+                <label for="telefone">Telefone</label>
+                <input name="telefone" type="text" id="telefone">
+            </div>
+
+            <div class="input span13">
+                <label for="categoria">Categoria/Área de atuação</label>
+                <select name="categoria" id="formacao">
+                    <option value=""></option>
+                    <option value="Ensino básico público">Ensino básico público</option>
+                    <option value="Ensino básico particular">Ensino básico particular</option>
+                    <option value="Ensino superior público">Ensino superior público</option>
+                    <option value="Ensino superior particular">Ensino superior particular</option>
+                    <option value="Ensino técnico">Ensino técnico</option>
+                </select>
+            </div>
+
+            <div class="input">
+                <label for="nalunos">Quantidade de alunos</label>
+                <input name="qtd_alunos" type="text" id="nalunos">
+            </div>
+
+            <div class="input span14">
+                <label for="sobre">Sobre</label>
+                <textarea name="sobre" id=""></textarea>
+            </div>
+
+            <div class="input span14">
+                <h4>Dados de login</h4>
+            </div>
+
+            <div class="input span14">
+                <label for="email">Email</label>
+                <input type="email" name="email_ie" id="email">
+            </div>
+
+            <div class="input span14">
+                <label for="senha">Senha</label>
+                <input type="password" name="senha_ie" id="senha">
+            </div>
+
+            <div class="input span14">
+                <button name="act" value="btn_inst" type="submit" class="botao">Enviar</button>
             </div>
         </form>
     </div>

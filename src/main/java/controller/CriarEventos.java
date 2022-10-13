@@ -21,7 +21,7 @@ public class CriarEventos extends HttpServlet {
 		String tituloEvento = request.getParameter("nomeEvento");
 		String local = request.getParameter("local");
 		int instituicaoEnsino =	Integer.parseInt(request.getParameter("ie"));
-		int voluntario = Integer.parseInt(request.getParameter("vol"));
+		String voluntario = (request.getParameter("vol"));
 		String dataEvento = request.getParameter("dataH");
 		String sobreEvento = request.getParameter("resumo");
 

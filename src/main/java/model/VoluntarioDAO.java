@@ -14,7 +14,7 @@ public class VoluntarioDAO {
 		Connection conn = null;
 		PreparedStatement pstm = null;
 		
-		String sql = "INSERT INTO voluntario (nome_voluntario, dataAniv, telefone_voluntario, email_voluntario, logradouro_voluntario, cidade_voluntario, estado_voluntario, cep_voluntario, formacao, sobre_voluntario, senha)" + " VALUES(?,?,?,?,?,?,?,?,?,?,?)";
+		String sql = "INSERT INTO voluntario (nomeVolunt, dataNasc, telefoneVolunt, emailVolunt, logradouroVolunt, cidadeVolunt, estadoVolunt, cepVolunt, formacao, sobreVolunt, senha)" + " VALUES(?,?,?,?,?,?,?,?,?,?,?)";
 		
 		
 		try {
